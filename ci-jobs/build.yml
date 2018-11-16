@@ -19,3 +19,8 @@ jobs:
         npm ci
         npm run package-ci
       displayName: 'Install dependencies and run packager'
+    - task: PublishTestResults@2
+      inputs: 
+        testResultsFormat: 'JUnit'
+        testResultsFiles: '**/*test*.xml'
+      displayName: 'Push test results for reporting'
